@@ -1,13 +1,31 @@
-import React from 'react';
+import React from "react";
+import { motion } from "framer-motion";
+
 
 const Title = () => {
   return (
     <div className="title">
-      <h1>FireGram</h1>
-      <h2>Your Pictures</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <motion.h1 initial={{ y: "-80px" }} animate={{ y: 0 }}>
+        PHOTiXA
+      </motion.h1>
+
+      <motion.h2
+        initial={{ opacity: "0" }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+      >
+        YOUR MOMENTS
+      </motion.h2>
+
+      <motion.p
+       initial={{ opacity: "0" }}
+       animate={{ opacity: 1 }}
+       transition={{ delay: 1.5 }}
+      >
+        Give Your Moments a Space to Live
+      </motion.p>
     </div>
-  )
-}
+  );
+};
 
 export default Title;

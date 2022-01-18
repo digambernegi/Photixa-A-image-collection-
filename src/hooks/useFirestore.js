@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { db } from "./firebase";
+import { db } from "../firebase/firebaseConfig";
 
 const useFirestore = (collection) => {
   const [data, setData] = useState([]);
@@ -10,14 +10,15 @@ const useFirestore = (collection) => {
       .orderBy("createdAt", "desc")
       .onSnapshot((snap) => {
         let imageCollection = [];
-        snap.forEach(img => {
+        snap.forEach((img) => {
           imageCollection.push({ ...img.data(), id: img.id });
+          
         });
         setData(imageCollection);
       });
     return () => unsub();
   }, [collection]);
-  return {data};
+  return { data };
 };
 
 export default useFirestore;
