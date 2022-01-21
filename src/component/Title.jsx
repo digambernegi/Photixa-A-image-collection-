@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-
 const Title = () => {
   return (
     <div className="title">
@@ -18,9 +17,9 @@ const Title = () => {
       </motion.h2>
 
       <motion.p
-       initial={{ opacity: "0" }}
-       animate={{ opacity: 1 }}
-       transition={{ delay: 1.5 }}
+        initial={{ opacity: "0" }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
       >
         Give Your Moments a Space to Live
       </motion.p>

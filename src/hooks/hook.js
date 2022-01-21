@@ -1,48 +1,45 @@
 import { useState, useEffect } from "react";
-import { storage, db, timeStamp } from "../firebase/firebaseConfig";
-import {collection,getDocs} from 'firebase/firestore';
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { storage, colRef, timeStamp } from "../firebase/firebaseConfig";
+import { addDoc } from "firebase/firestore";
 
- const useStorage = (file) => {
+const useStorage = (file) => {
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(null);
 
-  
- /*  const mydbRef = collection(db,'images')
-  useEffect(() =>{
-    const getdata=async () =>{
-      const data=await getDocs(mydbRef);
-      console.log(data)
-    }
-  },[file])
-}  */
   useEffect(() => {
-    const storageRef = storage.ref(file.name);
+    const storageRef = ref(storage, file.name);
+    console.log(colRef);
 
-    //crate db with 'image' name 
-    const collectionRef = db.collection("images");
-  
-    //on eventlistener to get uploading % else return error
-    storageRef.put(file).on(
+    //get Progress
+    const uploadTask = uploadBytesResumable(storageRef, file);
+    uploadTask.on(
       "state_changed",
       (snap) => {
-        let per = Math.round((snap.bytesTransferred / snap.totalBytes) * 100);
-        setProgress(per);
+        const progress = Math.round(
+          (snap.bytesTransferred / snap.totalBytes) * 100
+        );
+        console.log("Upload is " + progress + "% done");
+        setProgress(progress);
       },
       (error) => {
-        setError(error.message);
+        setError(error);
       },
 
-      // async fn to get image URL and store it in state + adding 2 attribute to images db collection with (url and createdAt)
+      // Handle successful uploads on complete
       async () => {
-        const url = await storageRef.getDownloadURL();
-        const createdAt = timeStamp();
-        collectionRef.add({ url, createdAt });
+        const url = await getDownloadURL(uploadTask.snapshot.ref);
+        console.log("File available at", url);
+
+        //creating new documnet object inside 'images' collection and storing FieldValues({url:url and createdAt:createdAt})
+        const createdAt = timeStamp;
+        await addDoc(colRef, { url, createdAt });
+
         setUrl(url);
       }
     );
   }, [file]);
-
   return { progress, error, url };
 };
 

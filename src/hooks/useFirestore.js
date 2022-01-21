@@ -1,24 +1,24 @@
 import { useState, useEffect } from "react";
-import { db } from "../firebase/firebaseConfig";
+import { collection, onSnapshot, orderBy } from "firebase/firestore";
+import { colRef } from "../firebase/firebaseConfig";
 
-const useFirestore = (collection) => {
+const useFirestore = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const unsub = db
-      .collection(collection)
-      .orderBy("createdAt", "desc")
-      .onSnapshot((snap) => {
-        let imageCollection = [];
-        snap.forEach((img) => {
-          imageCollection.push({ ...img.data(), id: img.id });
-          
-        });
-        setData(imageCollection);
+    const unsubscribe = colRef;
+    orderBy("timeStamp", "desc");
+    onSnapshot(unsubscribe, (snapshot) => {
+      let documents = [];
+      snapshot.docs.forEach((doc) => {
+        documents.push({ ...doc.data(), id: doc.id });
       });
-    return () => unsub();
+      setData(documents);
+    });
+    return () => unsubscribe();
   }, [collection]);
-  return { data };
+
+  return { data }; // return array containing no of data images
 };
 
 export default useFirestore;

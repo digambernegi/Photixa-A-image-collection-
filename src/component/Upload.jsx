@@ -21,32 +21,30 @@ const Upload = () => {
     console.log(file);
   };
 
- 
   return (
     <form>
       <label>
-        <input type="file" onChange={handleUpload} 
-        /* accept="image/x-png,image/jpeg" *//>
+        <input
+          type="file"
+          onChange={handleUpload}
+          /* accept="image/x-png,image/jpeg" */
+        />
         <motion.svg
-        
-           style={{
+          style={{
             width: 60,
             height: 60,
             borderRadius: 30,
             color: "grey",
           }}
-
-          initial={{ opacity: "0", y:'80px' }}
-          animate={{ opacity: 1, y:'0px' }}
+          initial={{ opacity: "0", y: "80px" }}
+          animate={{ opacity: 1, y: "0px" }}
           transition={{ delay: 2 }}
-
           xmlns="http://www.w3.org/2000/svg"
           className="svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        
->
+          fill="#5B5656"
+          viewBox="3 3 18 18"
+          stroke="white"
+        >
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
