@@ -15,7 +15,7 @@ const Upload = () => {
       setFile(files);
       setError("");
     } else {
-      setFile(null);
+      /*  setFile(null); */
       setError("Invalid file type");
     }
     console.log(file);
@@ -34,11 +34,11 @@ const Upload = () => {
             width: 60,
             height: 60,
             borderRadius: 30,
-            color: "grey",
+            color: "4E4E4E",
           }}
-          initial={{ opacity: "0", y: "80px" }}
-          animate={{ opacity: 1, y: "0px" }}
-          transition={{ delay: 2 }}
+          initial={{ opacity: "0", y: "75px" }}
+          animate={{ opacity: 1, y: "20px" }}
+          transition={{ delay: 1.2 }}
           xmlns="http://www.w3.org/2000/svg"
           className="svg"
           fill="#5B5656"
@@ -46,9 +46,7 @@ const Upload = () => {
           stroke="white"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
+            stroke-width="1"
             d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
           />
         </motion.svg>

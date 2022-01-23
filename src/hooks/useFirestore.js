@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
-import { collection, onSnapshot, orderBy } from "firebase/firestore";
+import { onSnapshot, orderBy } from "firebase/firestore";
 import { colRef } from "../firebase/firebaseConfig";
 
-const useFirestore = () => {
+const useFirestore = (collection) => {
   const [data, setData] = useState([]);
 
+  //supervise documents in collection for changes and keep in sync
   useEffect(() => {
     const unsubscribe = colRef;
-    orderBy("timeStamp", "desc");
+    orderBy("createdAt", "desc");
     onSnapshot(unsubscribe, (snapshot) => {
       let documents = [];
       snapshot.docs.forEach((doc) => {

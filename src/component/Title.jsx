@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+
+//header
 const Title = () => {
   return (
     <div className="title">

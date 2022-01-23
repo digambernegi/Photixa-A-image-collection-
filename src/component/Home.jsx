@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 
 const Home = ({ setSelectedImage }) => {
   const { data } = useFirestore("images");
-  console.log(data);
 
   return (
     <div className="home">
@@ -26,7 +25,7 @@ const Home = ({ setSelectedImage }) => {
               whileTap={{ scale: 0.8, cursor: "grabbing" }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
+              transition={{ delay: 1.5 }}
               src={image.url}
               alt="img"
             />

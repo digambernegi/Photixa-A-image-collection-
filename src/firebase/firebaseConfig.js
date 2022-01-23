@@ -13,10 +13,10 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const firebase = initializeApp(firebaseConfig);
-const storage = getStorage(firebase);
-const db = getFirestore();
-const colRef = collection(db, "images");
-const timeStamp = serverTimestamp();
+const firebase = initializeApp(firebaseConfig); 
+const storage = getStorage(firebase);  
+const db = getFirestore();               //database reference
+const colRef = collection(db, "images"); //collection reference
+const timeStamp = serverTimestamp();     //firebase timeStamp
 
 export { storage, db, colRef, timeStamp };

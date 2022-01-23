@@ -15,6 +15,20 @@ body {
   max-width: 1111px;
   margin: 0 auto;
 }
+
+.title {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #ffffff;
+}
+form {
+  z-index: 1;
+  position: sticky;
+  top: 10rem;
+  background-color: #ffffff;
+}
+
 .title h1 {
   color: var(--primary);
   font-size: 1.5rem;
@@ -41,16 +55,22 @@ input {
 /* progress bar styles */
 .progressbar {
   height: 5px;
+  border-radius: 10px;
   background-color: #63f763;
   margin: 20px 0;
 }
-
+.msg {
+  margin-top: 20px;
+  height: 50px;
+}
 /* image grid styles */
 .home {
   display: grid;
-  margin: 20px auto;
+  margin: 10px auto;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 40px;
+  grid-gap: 30px;
+  overflow-y: hid;
+  border: 1px solid white;
 }
 .collection {
   overflow: hidden;
@@ -58,8 +78,6 @@ input {
   padding: 50% 0;
   position: relative;
   opacity: 0.8;
-  border: 4px solid red;
-
 }
 
 .collection img {
@@ -74,6 +92,7 @@ input {
 /* modal styles */
 
 .lighthouse {
+  z-index: 3;
   position: fixed;
   top: 0;
   left: 0;
@@ -93,23 +112,53 @@ input {
   border: 3px solid white;
 }
 
-.svg:hover{
-  fill: #69f75c;
-  transition: all .3s ease;
+.svg {
+  background-color: #efb6b2;
+  transition: transform 300ms, background-color 300ms;
+  animation: pulse 500ms;
 }
 
-.trashimg{
-  border: 1px solid red;
-  display: flex;
-  position: absolute;
-  z-index: 2;
-  justify-content: flex-end;
-
+.svg:hover {
+  fill: #efb6b2;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
 }
-.trash{
-  border: 1px solid;
-  display: block;
-  position: absolute;
-  float: right;
-  height: 30px;
+.svg:active {
+  transform: scale(0.95);
+  animation: none;
+}
+
+@keyframes pulse {
+  from {
+    box-shadow: #efb6b2 0 0 0;
+  }
+  to {
+    box-shadow: #ff69b400 0 0 0 12px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  form {
+    top: 10rem;
+  }
+  .home {
+    grid-gap: 10px;
+  }
+
+  .title h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  form {
+    top: 9.7rem;
+  }
+  .home {
+    grid-gap: 10px;
+  }
+
+  .title h2 {
+    font-size: 1.6rem;
+  }
 }

@@ -2,9 +2,10 @@ import React, { useEffect } from "react";
 import useStorage from "../hooks/hook";
 import { motion } from "framer-motion";
 
+
+//retriving url & upload progress from 'usefirestore' and dipiciting them
 const Progress = ({ file, setFile }) => {
   const { url, progress } = useStorage(file);
-  console.log(url, progress);
 
   useEffect(() => {
     if (url) {
