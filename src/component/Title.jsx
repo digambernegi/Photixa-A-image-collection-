@@ -23,7 +23,7 @@ const Title = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
       >
-        Give Your Moments a Space to Live
+        Give Your Moments some Space to Live
       </motion.p>
     </div>
   );

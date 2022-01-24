@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
 
 :root {
   --primary: #efb6b2;
@@ -10,7 +10,8 @@
 
 /* base styles & title */
 body {
-  font-family: "Noto Serif";
+  font-family: 'Special Elite', cursive;
+
   color: var(--secondary);
 }
 .App {
