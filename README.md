@@ -6,7 +6,7 @@ A place to store all your favourite captured moment together.
 
 ## Demo
 
-![](https://github.com/digambernegi/Moment-By-Moment-A-personal-gallary-collection-/assets/images/screenshot.png)
+![](https://github.com/digambernegi/Moment-By-Moment-A-personal-gallary-collection-/blob/master/src/assets/images/screenshot.png)
 
 
 ## Tech Stack
