@@ -4,6 +4,8 @@
   --primary: #efb6b2;
   --secondary: #4e4e4e;
   --error: #ff4a4a;
+  --progress:#63f763;
+  --white:#ffffff;
 }
 
 /* base styles & title */
@@ -20,13 +22,13 @@ body {
   position: sticky;
   top: 0;
   z-index: 1;
-  background-color: #ffffff;
+  background-color: var(--white);
 }
 form {
   z-index: 1;
   position: sticky;
   top: 10rem;
-  background-color: #ffffff;
+  background-color: var(--white);
 }
 
 .title h1 {
@@ -56,7 +58,7 @@ input {
 .progressbar {
   height: 5px;
   border-radius: 10px;
-  background-color: #63f763;
+  background-color: var(--progress);
   margin: 20px 0;
 }
 .msg {
@@ -70,7 +72,7 @@ input {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
   overflow-y: hid;
-  border: 1px solid white;
+  border: 1px solid var(--white);
 }
 .collection {
   overflow: hidden;
@@ -113,13 +115,13 @@ input {
 }
 
 .svg {
-  background-color: #efb6b2;
+  background-color: var(--primary);
   transition: transform 300ms, background-color 300ms;
   animation: pulse 500ms;
 }
 
 .svg:hover {
-  fill: #efb6b2;
+  fill: var(--primary);
   transform: scale(1.05);
   transition: all 0.3s ease;
 }
