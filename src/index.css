@@ -6,6 +6,7 @@
   --error: #ff4a4a;
   --progress:#63f763;
   --white:#ffffff;
+  font-size: 15px;
 }
 
 /* base styles & title */
@@ -15,7 +16,7 @@ body {
   color: var(--secondary);
 }
 .App {
-  max-width: 1111px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -28,14 +29,14 @@ body {
 form {
   z-index: 1;
   position: sticky;
-  top: 10rem;
+  top: 8rem;
   background-color: var(--white);
 }
 
 .title h1 {
   color: var(--primary);
-  font-size: 1.5rem;
-  letter-spacing: 3px;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
   font-weight: normal;
 }
 .title h2,
@@ -43,10 +44,11 @@ form {
   text-align: center;
   letter-spacing: 1px;
 }
+
 .title h2 {
   margin-top: 45px;
   letter-spacing: 1px;
-  font-size: 2.6rem;
+  font-size: 2.3rem;
 }
 
 /* upload form styles */
@@ -69,7 +71,7 @@ input {
 /* image grid styles */
 .home {
   display: grid;
-  margin: 10px auto;
+  margin: 0 auto;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
   overflow-y: hid;
@@ -145,7 +147,7 @@ input {
 
 @media only screen and (max-width: 600px) {
   form {
-    top: 10rem;
+    top: 7rem;
   }
   .home {
     grid-gap: 10px;
@@ -154,11 +156,23 @@ input {
   .title h2 {
     font-size: 1.8rem;
   }
+
+  /* .lighthouse{
+    display: grid;
+    place-items: center;
+
+  } */
+  .lighthouse img {
+    max-height: 80%;
+    max-width: 80%;
+  transform: translate(0, 100%);
+    
+  }
 }
 
 @media only screen and (max-width: 360px) {
   form {
-    top: 9.7rem;
+    top: 8.2rem;
   }
   .home {
     grid-gap: 10px;
